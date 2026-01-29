@@ -1,0 +1,274 @@
+/* 1. RESET E CONFIGURAÇÕES GERAIS */
+/* 1. IMPORTAÇÃO DA FONTE (SEMPRE NO TOPO) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding-top: 70px; /* Compensa a altura da navbar fixa */
+}
+
+/* 2. NAVBAR (Título com efeito de atividade) */
+.navbar {
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: 0px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* Efeito de "Atividade" na Logo */
+.navbar .logo:hover {
+    color: #E1306C; /* Rosa vibrante */
+    letter-spacing: 3px; /* As letras se expandem */
+}
+
+.navbar .logo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: #E1306C;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.navbar .logo:hover::after {
+    width: 100%;
+}
+
+/* 3. HERO (Texto Alinhado à Esquerda Inferior) */
+/* ... Mantenha seu Reset e Navbar iguais ao anterior ... */
+
+.hero {
+    height: 75vh;
+    /* CORREÇÃO: Usando .jpeg conforme seu HTML e forçando a exibição */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('doutora.jpeg') !important;
+    background-size: cover;
+    background-position: center 28%; 
+    display: flex;
+    align-items: flex-end;    
+    justify-content: flex-start; 
+    padding: 60px; 
+    color: white;
+    opacity: 1 !important; /* Garante que o JS não esconda */
+}
+
+/* O restante do CSS (Services, Contact, Footer) permanece o mesmo */
+
+.hero-content {
+    max-width: 500px;
+    text-align: left;
+    /* Animação de entrada do texto */
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. BOTÕES */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 1rem 2rem;
+    background-color: #e49a69;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #914a14;
+    transform: scale(1.05);
+}
+
+/* 5. SERVIÇOS */
+.services {
+    padding: 5rem 2rem;
+    background-color: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border: 1px solid #9e4c4c;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    /* Mantém a sua sombra e cor de borda, apenas adiciona o crescimento */
+    box-shadow: 0 10px 20px rgba(67, 101, 238, 0.1);
+    /* O segredo: colocar o movimento de subir E o de crescer na mesma linha */
+    transform: translateY(-5px) scale(1.05); 
+}
+
+/* Container que segura a Imagem e o Texto lado a lado */
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* Alinha o texto verticalmente com o centro da imagem */
+    justify-content: space-between;
+    gap: 4rem; /* Espaço entre a imagem e o texto */
+    padding: 80px 20px;
+}
+
+/* Ajuste da Imagem (para garantir que ela ocupe metade do espaço) */
+.about-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Formatação do Bloco de Texto */
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif; /* Se escolheu a fonte elegante */
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Detalhe opcional: uma linha pequena sob o título "Sobre Nós" */
+.about-text h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #9e4c4c; /* Sua cor bordô */
+    margin-top: 10px;
+}
+
+.about-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8; /* Espaçamento entre linhas para leitura leve */
+    color: #555;
+    margin-bottom: 1.2rem;
+    text-align: justify; /* Deixa o bloco de texto alinhado e elegante */
+}
+
+/* Responsividade: No celular, a imagem fica em cima e o texto embaixo */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .about-text h2::after {
+        margin: 10px auto; /* Centraliza a linha no celular */
+    }
+}
+
+.branding-section {
+    padding: 10px 10px;
+    background-color: #fafafa;
+    text-align: center; /* Centraliza o texto */
+}
+
+.branding-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Coloca um embaixo do outro */
+    align-items: center;    /* Centraliza horizontalmente */
+    gap: 0px;              /* Espaço entre o texto e a logo */
+}
+
+.branding-text h1 {
+    font-size: 2.0rem;
+    line-height: 1.3;
+    color: #333;
+    max-width: 800px;
+    margin: 0;
+    position: relative;
+    z-index: 2; /* Garante que o texto fique sempre visível */
+}
+
+.watermark-logo-bottom {
+    width: 500px;
+    height: 700px; /* Altura menor para a logo não ocupar espaço demais */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Puxa a logo para cima do texto */
+    margin-top: -150px; /* Ajuste esse valor para aproximar mais ou menos */
+    margin-bottom: -200;
+    /* Efeito Marca d'água */
+    opacity: 0.15; 
+    filter: grayscale(100%);
+    
+    transition: opacity 0.3s; /* Efeito suave se quiser passar o mouse */
+}
+
+/* 8. FOOTER */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: -100px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    font-size: 3.5rem;
+    transition: transform 0.3s;
+}
+
+.social-links a .fa-instagram { color: #E1306C; }
+.social-links a .fa-whatsapp { color: #25D366; }
+.social-links a:hover { transform: translateY(-5px); }
